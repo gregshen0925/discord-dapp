@@ -34,6 +34,19 @@ const dummyDms = [{
 
 const ConversationList = () => {
     const [dms, setDms] = useState(dummyDms)
+
+    useEffect(() => {
+        async function getdms() {
+            try {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/getdms`)
+
+                setDms(await response.json())
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        getdms()
+    }, [])
     return (
         <div className={styles.conversations}>
             <div className={styles.conversationListTop}>
