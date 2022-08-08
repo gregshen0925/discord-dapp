@@ -1,6 +1,7 @@
 import styles from '../styles/Home.module.css'
 import SideBar from '../components/Sidebar'
-import ConversationList from '../components/conversationList'
+import ConversationList from '../components/ConversationList'
+import ChatView from '../components/ChatView'
 
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <SideBar />
       <div className={styles.main}>
         <ConversationList />
+        <ChatView />
       </div>
     </div>
   )
