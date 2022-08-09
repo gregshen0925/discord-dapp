@@ -12,7 +12,7 @@ export default async (req, res) => {
     try {
         const sanityResponse = await client.fetch(query)
 
-        const response = sanityResponse.map(item => {
+        const response = sanityResponse.map((item) => {
             return {
                 avatar: item.conversation.image,
                 name: item.conversation.name,

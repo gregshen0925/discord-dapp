@@ -8,18 +8,19 @@ import DmCard from './DmCard'
 const ConversationList = () => {
     const [dms, setDms] = useState([])
 
-    // useEffect(() => {
-    //     async function getdms() {
-    //         try {
-    //             const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/getdms`)
+    useEffect(() => {
+        async function getdms() {
+            try {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/getdms`)
 
-    //             setDms(await response.json())
-    //         } catch (error) {
-    //             console.error(error)
-    //         }
-    //     }
-    //     getdms()
-    // }, [])
+                const data = await response.json()
+                setDms(data)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        getdms()
+    }, [])
 
     return (
         <div className={styles.conversations}>
