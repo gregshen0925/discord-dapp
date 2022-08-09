@@ -1,30 +1,14 @@
-import styles from "../styles/sidebar.module.css"
-import { useEffect, useState } from "react"
-import { useRouter } from "next/router"
-
-import tind3r from "../assets/Tind3r.png"
-import club from "../assets/讀書會啦ˋˊ.png"
-import RoomAvatar from "./RoomAvatar"
-
-const dummyChannels = [{
-    id: 1,
-    roomName: 'Tind3r',
-    avatar: tind3r
-},
-{
-    id: 2,
-    roomName: '讀書會啦ˋˊ',
-    avatar: club
-}]
-
-
+import styles from '../styles/sidebar.module.css'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import RoomAvatar from './RoomAvatar'
 
 const Sidebar = () => {
     const router = useRouter()
-    const [channels, setChannels] = useState(dummyChannels)
+    const [channels, setChannels] = useState([])
 
     useEffect(() => {
-        async function get() {
+        const getchannels = async () => {
             try {
                 const response = await fetch(
                     `${process.env.NEXT_PUBLIC_API_URL}/getchannels`,
@@ -38,19 +22,20 @@ const Sidebar = () => {
                 console.error(error)
             }
         }
-        get()
-    }, [])
+        getchannels()
+    }
+        , [])
 
     return (
-        <div className={styles.wrapper}>{
-            channels.map((channel, index) => (
+        <div className={styles.wrapper}>
+            {channels.map((channel, index) => (
                 <RoomAvatar
                     key={index}
-                    id={channel.id}
+                    id={channel.roomId}
                     avatar={channel.avatar}
-                    roomName={channel.roomName} />
-            ))
-        }
+                    roomName={channel.roomName}
+                />
+            ))}
         </div>
     )
 }

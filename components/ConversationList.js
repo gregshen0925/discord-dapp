@@ -1,52 +1,26 @@
 import styles from '../styles/conversationList.module.css'
-import { useState, useEffect } from "react"
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import DmCard from './DmCard'
 import friends from '../assets/icons/friends.svg'
 import nitro from '../assets/icons/nitro.svg'
-
-import christine from '../assets/christine.png'
-import jeffrey from '../assets/jeffrey.png'
-import justa from '../assets/justa.png'
-import max from '../assets/max.png'
-
-
-const dummyDms = [{
-    id: 1,
-    name: 'christine',
-    avatar: christine
-},
-{
-    id: 2,
-    name: 'jeffrey0723',
-    avatar: jeffrey
-},
-{
-    id: 3,
-    name: 'Justa',
-    avatar: justa
-},
-{
-    id: 4,
-    name: '0xMax',
-    avatar: max
-}]
+import DmCard from './DmCard'
 
 const ConversationList = () => {
-    const [dms, setDms] = useState(dummyDms)
+    const [dms, setDms] = useState([])
 
-    useEffect(() => {
-        async function getdms() {
-            try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/getdms`)
+    // useEffect(() => {
+    //     async function getdms() {
+    //         try {
+    //             const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/getdms`)
 
-                setDms(await response.json())
-            } catch (error) {
-                console.error(error)
-            }
-        }
-        getdms()
-    }, [])
+    //             setDms(await response.json())
+    //         } catch (error) {
+    //             console.error(error)
+    //         }
+    //     }
+    //     getdms()
+    // }, [])
+
     return (
         <div className={styles.conversations}>
             <div className={styles.conversationListTop}>
