@@ -1,3 +1,8 @@
+Add .env.local with
+SANITY_PROJECT_ID=j9l7reww
+SANITY_TOKEN =skYIL0VV18fPGWWX2dzPYWC2b8AdUX62LdfqfeCoYXRqct9zWqydjOabj3yKfkCowKVTj3vWF8QlhUiCGz0EIzMt9LMwFfF7i4K6HScPCjQmGbZLmNOnEs3AtuK1yusmEykEnT0txNytZfelotW7ODCaxttlT2sgmp37JHBFJjpBMrhLYVfh
+NEXT_PUBLIC_API_URL=http://localhost:3000/api
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
